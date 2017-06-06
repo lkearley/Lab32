@@ -2,4 +2,10 @@
     <string name="app_name">Lab3</string>
     <string name="title_course_detail">Class Roster</string>
     <string name="title_activity_edit_student">EditStudentActivity</string>
+    <string-array name="ClassStanding_Arrays">
+        <item>Freshman</item>
+        <item>Sophomore</item>
+        <item>Junior</item>
+        <item>Senior</item>
+    </string-array>
 </resources>
