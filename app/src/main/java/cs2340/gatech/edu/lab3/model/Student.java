@@ -60,6 +60,19 @@ public class Student implements Parcelable {
     }
 
     /**
+     * Make a new student
+     * @param name      the student's name
+     * @param major     the student's major
+     * @param standing  the student's class stadning
+     */
+    public Student(String name, String major, ClassStanding standing) {
+        _name = name;
+        _major= major;
+        _id = Student.Next_Id++;
+        _standing = standing;
+    }
+
+    /**
      * No param constructor -- DO NOT CALL NORMALLY
      * This constructor only for GUI use in edit/new student dialog
      */

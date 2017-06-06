@@ -12,7 +12,7 @@ public enum ClassStanding {
     SENIOR("SR");
 
     private String charRep;
-    private ClassStanding(String _str) {
+    ClassStanding(String _str) {
         this.charRep = _str;
     }
 }

@@ -137,5 +137,6 @@ public class Model {
 
         existing.setName(student.getName());
         existing.setMajor(student.getMajor());
+        existing.setClassStanding(student.getClassStanding());
     }
 }
