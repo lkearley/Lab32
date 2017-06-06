@@ -54,9 +54,7 @@ public class Student implements Parcelable {
      * @param major     the student's major
      */
     public Student(String name, String major) {
-        _name = name;
-        _major= major;
-        _id = Student.Next_Id++;
+        this(name, major, ClassStanding.FRESHMAN);
     }
 
     /**
