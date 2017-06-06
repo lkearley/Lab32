@@ -24,6 +24,7 @@ public class Student implements Parcelable {
     private int _id;
     private String _name;
     private String _major;
+    private ClassStanding _standing;
 
     /* **********************
      * Getters and setters
@@ -71,9 +72,7 @@ public class Student implements Parcelable {
      * @return the display string representation
      */
     @Override
-    public String toString() {
-        return _name + " " + _major;
-    }
+    public String toString() {return _name + " " + _major + " " + _standing;}
 
 
     /* *********************************
@@ -100,6 +99,14 @@ public class Student implements Parcelable {
          dest.writeString(_name);
          dest.writeString(_major);
          dest.writeInt(_id);
+    }
+
+    public void setClassStanding(ClassStanding _stand) {
+        _standing = _stand;
+    }
+
+    public ClassStanding getClassStanding() {
+        return _standing;
     }
 
     public static final Parcelable.Creator<Student> CREATOR
