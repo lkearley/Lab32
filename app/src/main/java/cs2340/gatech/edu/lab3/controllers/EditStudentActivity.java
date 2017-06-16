@@ -87,6 +87,7 @@ public class EditStudentActivity extends AppCompatActivity implements AdapterVie
         if (getIntent().hasExtra(CourseDetailFragment.ARG_STUDENT_ID)) {
             _student = (Student) getIntent().getParcelableExtra(CourseDetailFragment.ARG_STUDENT_ID);
             majorSpinner.setSelection(Student.findPosition(_student.getMajor()));
+            classStandingSpinner.setSelection(Student.findPositionStanding(_student.getClassStanding()));
             editing = true;
         } else {
             _student = new Student();

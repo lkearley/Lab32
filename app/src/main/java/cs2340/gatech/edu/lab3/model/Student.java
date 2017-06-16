@@ -25,6 +25,7 @@ public class Student implements Parcelable {
     private String _name;
     private String _major;
     private ClassStanding _standing;
+    private String _standingString;
 
     /* **********************
      * Getters and setters
@@ -42,6 +43,15 @@ public class Student implements Parcelable {
         int i = 0;
         while (i < legalMajors.size()) {
             if (code.equals(legalMajors.get(i))) return i;
+            ++i;
+        }
+        return 0;
+    }
+    public static int findPositionStanding(ClassStanding code) {
+        int i = 0;
+        while (i < ClassStanding.values().length) {
+            ClassStanding temp = ClassStanding.values()[i];
+            if (code.toString().equals(temp.toString())) return i;
             ++i;
         }
         return 0;
@@ -68,6 +78,7 @@ public class Student implements Parcelable {
         _major= major;
         _id = Student.Next_Id++;
         _standing = standing;
+        _standingString = _standing.toString();
     }
 
     /**
@@ -83,7 +94,7 @@ public class Student implements Parcelable {
      * @return the display string representation
      */
     @Override
-    public String toString() {return _name + " " + _major + " " + _standing;}
+    public String toString() {return _name + " " + _major + " " + _standing.toString();}
 
 
     /* *********************************
@@ -95,6 +106,7 @@ public class Student implements Parcelable {
         _name = in.readString();
         _major = in.readString();
         _id = in.readInt();
+        _standing = (ClassStanding) in.readSerializable();
     }
 
     @Override
@@ -110,15 +122,18 @@ public class Student implements Parcelable {
          dest.writeString(_name);
          dest.writeString(_major);
          dest.writeInt(_id);
+         dest.writeSerializable(_standing);
     }
 
     public void setClassStanding(ClassStanding _stand) {
         _standing = _stand;
+        _standingString = _stand.toString();
     }
 
     public ClassStanding getClassStanding() {
         return _standing;
     }
+    public String getClassStandingString() { return _standingString;}
 
     public static final Parcelable.Creator<Student> CREATOR
             = new Parcelable.Creator<Student>() {
